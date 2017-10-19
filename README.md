@@ -31,10 +31,22 @@ If you want a live demo through a webcam, there are few options.
  - **SINGLE** will only show the final pose estimation. 
  - **HM** will show each joint heatmap of last stage separately.
 
+You can also use video files like `.avi`, `.mp4`, `.flv`.
+
 The CPM structure assumes the body or hand you want to estimate is **located in the middle** of the frame.
 If you want to avoid that, one way is to add a detector at the begining, and feed the detected bounding box image into this model.
 
-### Build your own model
+## Build your own model
+### Create dataset
+See **utils/create_cpm_tfr_fulljoints.py** for an example.
+If you want to follow the script, you need to prepare your data like
+ - dataset/person_0/imgs/
+ - dataset/person_0/labels.txt
+
+And in **labels.txt**, the data format is
+`imgs_0.jpg bbox_top_left_y bbox_top_left_x bbox_bot_right_y bbox_bot_right_x joint_0_y joint_0_x joint_1_y joint_1_x ....`
+
+### Training
 See **models/nets** for model definition, I take **models/nets/cpm_hand.py** for example.
  - Create a model instance
  - Set how many stages you want the model to have (at least 2)
