@@ -4,3 +4,6 @@ models/weights/*
 test_imgs/*
 */__pycache__
 */*/__pycache__
+utils/create_cpm_tfr_aichallenger.py
+resulta/*
+test.py
